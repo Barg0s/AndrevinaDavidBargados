@@ -32,7 +32,12 @@ public class MainActivity extends AppCompatActivity {
         endevina = r.nextInt(0, 100);
         et = (EditText) findViewById(R.id.endrevinar);
         Button button = findViewById(R.id.button2);
-
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                comprobarNumero();
+            }
+        });
 
     }
     private void comprobarNumero(){
