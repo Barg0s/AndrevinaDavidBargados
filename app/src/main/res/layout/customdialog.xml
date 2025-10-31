@@ -1,36 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center"
-    >
+    android:padding="24dp">
 
-    <!-- Congrats message -->
     <TextView
-        android:id="@+id/congratsMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CONGRATS!"
-        android:gravity="center"/>
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"
+        android:gravity="center" />
 
-    <!-- EditText for the user to input their name -->
     <EditText
         android:id="@+id/userName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter your name"
-        android:inputType="textPersonName"/>
+        android:inputType="textPersonName"
+        android:layout_marginBottom="16dp" />
 
-    <!-- TextView to display the number of tries -->
     <TextView
-        android:id="@+id/attemptCount"
+        android:id="@+id/intents"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
-        android:gravity="center"/>
+        android:text="Has trigat X intents"
+        android:textSize="16sp"
+        android:layout_marginBottom="24dp"
+        android:gravity="center" />
 
-    <!-- Horizontal LinearLayout to contain the buttons -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,21 +38,19 @@
         android:gravity="center"
         android:weightSum="2">
 
-        <!-- Play Again Button -->
         <Button
             android:id="@+id/btnPlayAgain"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Play Again"/>
+            android:text="JUGAR"/>
 
-        <!-- Cancel Button -->
         <Button
             android:id="@+id/btnCancel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Cancel"/>
+            android:text="CANCEL" />
     </LinearLayout>
 
 </LinearLayout>

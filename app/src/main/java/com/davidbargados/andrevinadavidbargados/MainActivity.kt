@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         val userName = view.findViewById<EditText>(R.id.userName)
-        val attemptCount = view.findViewById<TextView>(R.id.attemptCount)
+        val attemptCount = view.findViewById<TextView>(R.id.intents)
         val btnPlayAgain = view.findViewById<Button>(R.id.btnPlayAgain)
         val btnCancel = view.findViewById<Button>(R.id.btnCancel)
 
@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity() {
 
             endevina = r.nextInt(100)
             et?.text?.clear()
-            cnt = 1
+            cnt = 0
             contador?.text = "intents: $cnt"
             ClearHistorial()
 
