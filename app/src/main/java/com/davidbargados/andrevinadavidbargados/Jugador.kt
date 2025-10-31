@@ -1,6 +1,6 @@
 package com.davidbargados.andrevinadavidbargados
 
-class Jugador {
-    var nom: String? = null
-    var puntuacio: Int = 0
-}
+data class Jugador(
+    val nom: String,
+    val puntuacio: Int
+)

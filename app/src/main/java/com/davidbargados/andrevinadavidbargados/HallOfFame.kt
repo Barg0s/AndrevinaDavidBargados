@@ -1,13 +1,14 @@
 package com.davidbargados.andrevinadavidbargados
 
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class HallOfFame : AppCompatActivity() {
-    private lateinit var tl: TableLayout // Safe and direct initialization
+    private lateinit var tl: TableLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,29 +18,42 @@ class HallOfFame : AppCompatActivity() {
 
         val ranking = MainActivity.ranking
 
-        // Add each ranking item to the table
-        for (cnt in ranking) {
-            val tr = TableRow(this).apply {
-                // Optionally, you can set properties on the row like padding, layout params, etc.
-            }
+        val headerRow = TableRow(this)
+        val headerNom = TextView(this)
+        val headerPunts = TextView(this)
 
-            val tv = TextView(this).apply {
-                text = cnt.toString()
-                // You can customize the TextView appearance here
-                setPadding(16, 16, 16, 16) // Example padding
-            }
+        headerNom.text = "Nom"
+        headerPunts.text = "Intents"
 
-            tr.addView(tv)  // Add the TextView to the TableRow
-            tl.addView(tr)   // Add the TableRow to the TableLayout
+        headerNom.setPadding(24, 16, 24, 16)
+        headerPunts.setPadding(24, 16, 24, 16)
+
+        headerRow.addView(headerNom)
+        headerRow.addView(headerPunts)
+        tl.addView(headerRow)
+
+        // Rellenamos las filas del ranking
+        for (jugador in ranking) {
+            val fila = TableRow(this)
+
+            val tvNom = TextView(this)
+            val tvPunts = TextView(this)
+
+            tvNom.text = jugador.nom
+            tvPunts.text = jugador.puntuacio.toString()
+
+            tvNom.setPadding(24, 16, 24, 16)
+            tvPunts.setPadding(24, 16, 24, 16)
+
+            fila.addView(tvNom)
+            fila.addView(tvPunts)
+
+            tl.addView(fila)
         }
 
-        // If using ViewCompat for insets, uncomment the following code
-        /*
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        val btnTornar = findViewById<Button>(R.id.btnTornar)
+        btnTornar.setOnClickListener {
+            finish()
         }
-        */
     }
 }

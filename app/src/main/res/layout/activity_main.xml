@@ -1,80 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
-    <!-- https://developer.android.com/reference/android/R.styleable#TextView_inputType !-->
-
+    <!-- Campo per introduir el número -->
     <EditText
         android:id="@+id/endrevinar"
-        android:layout_width="212dp"
-        android:layout_height="65dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Introdueix un número"
         android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-
+        android:padding="12dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.474" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Botó per endevinar -->
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Endevinar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.776"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/endrevinar"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.584" />
-
-    <Button
-        android:id="@+id/button_open_halloffame"
+    <!-- Comptador d'intents -->
+    <EditText
+        android:id="@+id/contador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="284dp"
-        android:text="Obrir el Hall Of Fame"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.099"
+        android:enabled="false"
+        android:inputType="none"
+        android:text="Intents: 0"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/button2"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Títol historial -->
+    <TextView
+        android:id="@+id/textViewHistorialLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Historial:"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/contador"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Zona d'historial amb scroll -->
+
+    <!-- Botó Hall of Fame -->
 
     <ScrollView
         android:id="@+id/historial"
-        android:layout_width="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="379dp"
+        android:layout_height="315dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@id/button_open_halloffame"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_height="200dp">
+        app:layout_constraintTop_toBottomOf="@id/textViewHistorialLabel"
+        app:layout_constraintVertical_bias="0.291">
 
         <TextView
             android:id="@+id/textViewHistorial"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textColor="#000000" />
+            android:padding="8dp"
+            android:textColor="#000000"
+            android:textSize="16sp" />
     </ScrollView>
 
-    <EditText
-        android:id="@+id/contador"
+    <Button
+        android:id="@+id/button_open_halloffame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="200dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text=""
+        android:layout_marginBottom="64dp"
+        android:text="Obrir el Hall Of Fame"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
